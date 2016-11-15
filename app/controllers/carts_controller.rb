@@ -71,4 +71,12 @@ class CartsController < ApplicationController
     def cart_params
       params.fetch(:cart, {})
     end
+
+    def current_cart
+      Cart.find(session[:cart_id])
+    rescue
+      cart = Cart.create
+      session[:cart_id] = cart_id
+      cart
+    end
 end
