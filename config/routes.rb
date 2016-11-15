@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :carts
   get '/' => 'top#index'
 
   get 'entries/sign_in' => 'entries#sign_in'
