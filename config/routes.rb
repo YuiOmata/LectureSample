@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/catalog' => 'products#catalog'
   post '/cart/add' => 'line_items#create'
 
+  get '/mycart' => 'carts#mycart'
+
   get 'entries/sign_in' => 'entries#sign_in'
   post 'entries/sign_in' => 'entries#sign_in'
 end

@@ -7,6 +7,10 @@ class CartsController < ApplicationController
     @carts = Cart.all
   end
 
+  def mycart
+    @carts = Cart.find(session[:cart_id])
+  end
+
   # GET /carts/1
   # GET /carts/1.json
   def show
@@ -70,13 +74,5 @@ class CartsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
       params.fetch(:cart, {})
-    end
-
-    def current_cart
-      Cart.find(session[:cart_id])
-    rescue
-      cart = Cart.create
-      session[:cart_id] = cart_id
-      cart
     end
 end

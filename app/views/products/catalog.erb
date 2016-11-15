@@ -6,7 +6,7 @@
     <% @products.each do |product| %>
       <form action="/cart/add" method="post">
         <div style="margin: 5px; padding: 5px; background: #DDDDDD; width: 250px;">
-          <input type="hidden" name="product_id" value="<%= product %>">
+          <input type="hidden" name="product_id" value="<%= product.id %>">
           <h3><%= product.title %></h3>
           <pre><%= product.description %>                       <%= product.price %>円</pre>
           <button type="submit">カートに入れる</button>
